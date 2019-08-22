@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import  Http404
 from .forms import productform
 from .models import db_project
+from django.views.generic import ListView
 # Create your views here.
 def productview_db(request,my_id):
     # obj=db_project.objects.get(id=my_id)
@@ -32,3 +33,9 @@ def product_delete(request,my_id):
         return redirect("../..")
     context = {"object":obj}
     return render(request, 'product_delete.html', context)
+
+
+class Db_projectListView(ListView):
+    template_name= 'Db_project/Db_project_list.html'
+    queryset = db_project.objects.all()
+

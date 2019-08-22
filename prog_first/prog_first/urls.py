@@ -24,7 +24,7 @@ urlpatterns = [
     path('', include('db_related.urls')),
     path('template/', home_view, name='fake_home'),
     path('child/', childu, name='child'),
-    path('', actual_home_view, name='home'),
+    path('welcome/', actual_home_view, name='home'),
     path('admin/', admin.site.urls),
     path('db_first/', detail_view, name='obselete_details_view'),
 

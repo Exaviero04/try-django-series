@@ -27,12 +27,19 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/db_related/migrations" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\govardhana.k\Desktop\Start\try-django-series\prog_first\db_related\migrations" />
+      <recent name="C:\Users\govardhana.k\Desktop\Start\try-django-series\prog_first\db_related\template" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\govardhana.k\Desktop\Start\try-django-series\prog_first\db_related\templates" />
+      <recent name="C:\Users\govardhana.k\Desktop\Start\try-django-series\prog_first\db_related\template\Db_project" />
+      <recent name="C:\Users\govardhana.k\Desktop\Start\try-django-series\prog_first\db_related" />
+      <recent name="C:\Users\govardhana.k\Desktop\Start\try-django-series\prog_first\db_related\template" />
       <recent name="C:\Users\govardhana.k\Desktop\Start\try-django-series\prog_first\template" />
-      <recent name="C:\Users\govardhana.k\Desktop\Start\prog_first\db_related" />
     </key>
   </component>
   <component name="RunDashboard">
