@@ -10,13 +10,14 @@ def productview_db(request,my_id):
     #     obj=db_project.objects.get(id=my_id)
     # except db_project.DoesNotExist:
     #     raise Http404
+    queryset=db_project.objects.all()
     form = productform(request.POST or None,instance=obj)
     if form.is_valid():
         form.save()
         form=productform()
 
 
-    context = {"object":obj,'form': form}
+    context = {"object_list":queryset,'form': form}
     return render(request, 'project_db.html', context)
 
 

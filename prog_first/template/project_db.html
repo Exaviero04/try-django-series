@@ -10,8 +10,7 @@
 
 {% endblock %}
 {% block dontgo %}
-<!--<form action="https://www.google.com/search" method="get">{%csrf_token%}-->
-<!--    <input type="text" name="q" placeholder="Enter your search">-->
-<!--    <input type="submit" value="search">-->
-<!--</form>-->
+{% for i in object_list%}
+<p>{{ i.id }} - {{i.title}}</p>
+{% endfor %}
 {% endblock %}
