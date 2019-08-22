@@ -14,18 +14,19 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from gun.views import home_view,actual_home_view,childu
+from django.urls import path,include
+from gun.views import home_view, actual_home_view, childu
 from just_trying.views import detail_view
-from db_related.views import productview_db,product_delete
+
+
 
 urlpatterns = [
-    path('template/',home_view),
-    path('child/',childu),
-    path('',actual_home_view),
+    path('', include('db_related.urls')),
+    path('template/', home_view, name='fake_home'),
+    path('child/', childu, name='child'),
+    path('', actual_home_view, name='home'),
     path('admin/', admin.site.urls),
-    path('db_first/',detail_view),
-    path('create/<int:my_id>/update', productview_db),
-    path('create/<int:my_id>/delete', product_delete),
+    path('db_first/', detail_view, name='obselete_details_view'),
+
 
 ]

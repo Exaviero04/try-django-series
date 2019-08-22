@@ -20,6 +20,10 @@ def productview_db(request,my_id):
     context = {"object_list":queryset,'form': form}
     return render(request, 'project_db.html', context)
 
+def product_detail(request,my_id):
+    obj = get_object_or_404(db_project, id=my_id)
+    context = {"object": obj}
+    return render(request, 'product_detail.html', context)
 
 def product_delete(request,my_id):
     obj = get_object_or_404(db_project, id=my_id)

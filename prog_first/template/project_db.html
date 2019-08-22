@@ -11,6 +11,6 @@
 {% endblock %}
 {% block dontgo %}
 {% for i in object_list%}
-<p>{{ i.id }} - {{i.title}}</p>
+<p>{{ i.id }} - <a href='{{i.get_absolute_url}}'>{{i.title}}</a></p>
 {% endfor %}
 {% endblock %}
