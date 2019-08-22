@@ -25,6 +25,6 @@ urlpatterns = [
     path('',actual_home_view),
     path('admin/', admin.site.urls),
     path('db_first/',detail_view),
-    path('create/<int:my_id>/delete', productview_db),
+    path('create/<int:my_id>/update', productview_db),
 
 ]
