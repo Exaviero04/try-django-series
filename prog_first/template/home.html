@@ -1,0 +1,12 @@
+<h2>this is a template you idiot</h2>
+<p>{{give_title}} passed through a dictionary</p>
+<title>{{give_title}}</title>
+<h3>
+{% for a in given_list %}
+    {%if a == 2 %}
+    <p>{{a|add:22}} - {{forloop.counter}}</p>
+    {%else%}
+<p>{{forloop.counter}} - {{a|capfirst}}</p>
+    {%endif%}
+{% endfor %}
+</h3>

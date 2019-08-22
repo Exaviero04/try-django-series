@@ -1,0 +1,18 @@
+{%extends 'base.html'%}
+
+{% block gooooo %}
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="save">
+<!--    <p><input type="submit" value="yes"/><a href="../../">cancel</a></p>-->
+</form>
+
+
+{% endblock %}
+{% block dontgo %}
+<!--<form action="https://www.google.com/search" method="get">{%csrf_token%}-->
+<!--    <input type="text" name="q" placeholder="Enter your search">-->
+<!--    <input type="submit" value="search">-->
+<!--</form>-->
+{% endblock %}

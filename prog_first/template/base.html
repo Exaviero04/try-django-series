@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+<head>
+    <title>
+        borrowing stuff from base.html
+    </title>
+</head>
+<body>
+{% include 'to_include.html' %}
+{% block gooooo %}
+this gets replaced
+{% endblock %}
+{% block dontgo %}
+this is dontgo
+{% endblock %}
+</body>
+</html>
