@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import  Http404
 from .forms import productform
 from .models import db_project
-from django.views.generic import ListView
+from django.views.generic import (ListView,DetailView,CreateView,UpdateView)
 # Create your views here.
 def productview_db(request,my_id):
     # obj=db_project.objects.get(id=my_id)
@@ -38,4 +38,27 @@ def product_delete(request,my_id):
 class Db_projectListView(ListView):
     template_name= 'Db_project/Db_project_list.html'
     queryset = db_project.objects.all()
+
+class Db_projectDetailView(DetailView):
+    template_name= 'Db_project/Db_project_details.html'
+    queryset = db_project.objects.all()
+
+    def get_object(self):
+        id_ = self.kwargs.get("id")
+        return get_object_or_404(db_project,id= id_)
+
+class Db_projectCreateView(CreateView):
+    template_name = 'Db_project/Db_project_create.html'
+    form_class = productform
+    queryset = db_project.objects.all()
+
+class Db_projectUpdateView(UpdateView):
+    template_name = 'Db_project/Db_project_create.html'
+    form_class = productform
+    queryset = db_project.objects.all()
+
+    def get_object(self):
+        id_ = self.kwargs.get("id")
+        return get_object_or_404(db_project, id = id_)
+
 
