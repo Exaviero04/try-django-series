@@ -1,4 +1,4 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import  Http404
 from .forms import productform
 from .models import db_project
@@ -15,7 +15,15 @@ def productview_db(request,my_id):
         form.save()
         form=productform()
 
-    # if request.method == "POST" and request.value == "yes":
-    #     obj.delete()
+
     context = {"object":obj,'form': form}
     return render(request, 'project_db.html', context)
+
+
+def product_delete(request,my_id):
+    obj = get_object_or_404(db_project, id=my_id)
+    if request.method == "POST":
+        obj.delete()
+        return redirect("../..")
+    context = {"object":obj}
+    return render(request, 'product_delete.html', context)

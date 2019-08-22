@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from gun.views import home_view,actual_home_view,childu
 from just_trying.views import detail_view
-from db_related.views import productview_db
+from db_related.views import productview_db,product_delete
 
 urlpatterns = [
     path('template/',home_view),
@@ -26,5 +26,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('db_first/',detail_view),
     path('create/<int:my_id>/update', productview_db),
+    path('create/<int:my_id>/delete', product_delete),
 
 ]
