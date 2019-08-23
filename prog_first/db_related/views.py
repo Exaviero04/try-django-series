@@ -92,13 +92,14 @@ class CourseView(View):
         return render(request, self.template_name, context)
 
 class Db_projectListView(View):
-    template_name= 'Db_project/Db_project_list.html'
+    template_name = 'Db_project/Db_project_list.html'
     queryset = db_project.objects.all()
 
     def get_queryset(self):
         return self.queryset
 
     def get(self, request, *args, **kwargs):
+        self.queryset = db_project.objects.all()
         context = {'object_list' : self.get_queryset()}
         return render(request, self.template_name, context)
 
@@ -116,9 +117,11 @@ class CourseCreateView(View):
         return render(request, self.template_name, context)
 
     def post(self, request, *args, **kwargs):
-        form = productform()
+        form = productform(request.POST)
         if form.is_valid():
+            print(form.is_valid())
             form.save()
+            return redirect("../")
         context = {"form": form}
         return render(request, self.template_name, context)
 
