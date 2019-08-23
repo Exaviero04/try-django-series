@@ -38,13 +38,13 @@ def product_delete(request,my_id):
     return render(request, 'product_delete.html', context)
 
 
-class Db_projectListView(ListView):
-    template_name= 'Db_project/Db_project_list.html'
-    queryset = db_project.objects.all()
+# class Db_projectListView(ListView):
+#     template_name= 'Db_project/Db_project_list.html'
+#     queryset = db_project.objects.all()
 
 class Db_projectDetailView(DetailView):
     template_name= 'Db_project/Db_project_details.html'
-    queryset = db_project.objects.all()
+   # queryset = db_project.objects.all()
 
     def get_object(self):
         id_ = self.kwargs.get("id")
@@ -78,7 +78,50 @@ class Db_projectDeleteView(DeleteView):
 
 
 class ProjectView(View):
+    template_name="yo.html"
     def get(self, request, *args, **kwargs):
-        return render(request, 'yo.html', {})
+        return render(request, self.template_name, {})
+
+class CourseView(View):
+    template_name = 'Db_project/Db_project_details.html'
+    def get(self, request, id=None, *args, **kwargs):
+        context={}
+        if id is not None:
+            obj = get_object_or_404(db_project, id=id)
+            context["object"] = obj
+        return render(request, self.template_name, context)
+
+class Db_projectListView(View):
+    template_name= 'Db_project/Db_project_list.html'
+    queryset = db_project.objects.all()
+
+    def get_queryset(self):
+        return self.queryset
+
+    def get(self, request, *args, **kwargs):
+        context = {'object_list' : self.get_queryset()}
+        return render(request, self.template_name, context)
+
+#This is to show the uses of class based view
+#Inheritance
+# class MyListView(Db_projectListView):
+#     queryset = db_project.objects.filter(id=1)
+
+class CourseCreateView(View):
+    template_name = 'Db_project/Db_project_create.html'
+
+    def get(self, request, *args, **kwargs):
+        form = productform()
+        context = {"form" : form}
+        return render(request, self.template_name, context)
+
+    def post(self, request, *args, **kwargs):
+        form = productform()
+        if form.is_valid():
+            form.save()
+        context = {"form": form}
+        return render(request, self.template_name, context)
+
+
 
 
